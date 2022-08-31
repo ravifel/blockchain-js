@@ -34,8 +34,7 @@ class Block {
 class Blockchain {
   constructor() {
     this.chain = [new Block(Date.now().toString())];
-    this.difficulty = 3; //adereço de dificuldade
-    this.blockTime = 30000; //tempo de bloqueio
+    this.difficulty = 1; //adereço de dificuldade
   }
 
   //Metodo para pegar o último bloco da cadeia
@@ -51,11 +50,6 @@ class Blockchain {
     block.mineration(this.difficulty); //chamando a mineração, chamando a dificuldade como parametro
 
     this.chain.push(block); //empurrando o bloco para a cadeia
-
-    this.difficulty +=
-      Date.now() - parseInt(this.getLastBlock().timestamp) < this.blockTime
-        ? 1
-        : -1;
   }
 
   //Metodo para saber se o bloco é valido ou não
@@ -70,6 +64,7 @@ class Blockchain {
         currentBlock.hash !== currentBlock.getHash() ||
         currentBlock.prevHash !== prevBlock.hash
       ) {
+        var mensagem = "O bloco é v";
         return false; //Não validado
       }
 
@@ -79,29 +74,46 @@ class Blockchain {
 }
 
 //---> criando uma nova cadeia para teste
-const RaviChain = new Blockchain();
-RaviChain.addBlock(new Block(Date.now().toString(), ["100,00 BTC"]));
-console.log(RaviChain.chain);
+const RaviRayaneChain = new Blockchain();
+RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["100,00 BTC"]));
+RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["99,00 BTC"]));
+RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["1,89 BTC"]));
+RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["39,00 BTC"]));
+RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["358,07 BTC"]));
+RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["789,00 BTC"]));
+RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["88,79 BTC"]));
+RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["3579,02 BTC"]));
+RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["4,93 BTC"]));
+RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["271,88 BTC"]));
+console.log(RaviRayaneChain.chain);
 console.log("Mostrando a cadeia de blocos");
 
 //---> verificando se a função é valida/
 //---> se for valida vai retornar "true"
-console.log(RaviChain.isValid());
-console.log("Validação da cadeia (TRUE)");
+console.log(
+  RaviRayaneChain.isValid() ? "A cadeia é válida" : "A cadeia não é válida"
+);
 
 //---> aqui iremos mudar algum dado do bloco e solicitar a validação (irá dar falso)
-RaviChain.chain[1].data = ["Alteração de dado"];
-console.log(RaviChain.chain);
-console.log(RaviChain.isValid());
-console.log("Validação da cadeia (FALSE)");
+// RaviRayaneChain.chain[1].data = ["Alteração de dado"];
+// console.log(RaviRayaneChain.chain);
+// console.log(
+//   RaviRayaneChain.isValid() ? "A cadeia é válida" : "A cadeia não é válida"
+// );
 
 //---> testando com a mineração
-// const RaviChain = new Blockchain();
-// RaviChain.addBlock(new Block(Date.now().toString(), ["100,00 BTC"]));
-// RaviChain.addBlock(new Block(Date.now().toString(), ["200,00 BTC"]));
-// RaviChain.addBlock(new Block(Date.now().toString(), ["300,00 BTC"]));
-// console.log(RaviChain.chain);
-// console.log(RaviChain);
+// const RaviRayaneChain = new Blockchain();
+// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["100,00 BTC"]));
+// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["200,00 BTC"]));
+// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["300,00 BTC"]));
+// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["39,00 BTC"]));
+// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["358,07 BTC"]));
+// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["789,00 BTC"]));
+// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["88,79 BTC"]));
+// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["3579,02 BTC"]));
+// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["4,93 BTC"]));
+// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["271,88 BTC"]));
+// console.log(RaviRayaneChain.chain);
 // console.log("Mostrando a cadeia de blocos no teste com a mineração");
 
 //OBSERVAÇÕES -->
