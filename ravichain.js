@@ -34,7 +34,7 @@ class Block {
 class Blockchain {
   constructor() {
     this.chain = [new Block(Date.now().toString())];
-    this.difficulty = 1; //adereço de dificuldade
+    this.difficulty = 3; //adereço de dificuldade
   }
 
   //Metodo para pegar o último bloco da cadeia
@@ -95,26 +95,26 @@ console.log(
 );
 
 //---> aqui iremos mudar algum dado do bloco e solicitar a validação (irá dar falso)
-// RaviRayaneChain.chain[1].data = ["Alteração de dado"];
-// console.log(RaviRayaneChain.chain);
-// console.log(
-//   RaviRayaneChain.isValid() ? "A cadeia é válida" : "A cadeia não é válida"
-// );
+RaviRayaneChain.chain[1].data = ["Alteração de dado"];
+console.log(RaviRayaneChain.chain);
+console.log(
+  RaviRayaneChain.isValid() ? "A cadeia é válida" : "A cadeia não é válida"
+);
 
 //---> testando com a mineração
-// const RaviRayaneChain = new Blockchain();
-// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["100,00 BTC"]));
-// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["200,00 BTC"]));
-// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["300,00 BTC"]));
-// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["39,00 BTC"]));
-// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["358,07 BTC"]));
-// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["789,00 BTC"]));
-// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["88,79 BTC"]));
-// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["3579,02 BTC"]));
-// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["4,93 BTC"]));
-// RaviRayaneChain.addBlock(new Block(Date.now().toString(), ["271,88 BTC"]));
-// console.log(RaviRayaneChain.chain);
-// console.log("Mostrando a cadeia de blocos no teste com a mineração");
+const RaviRayaneChain2 = new Blockchain();
+RaviRayaneChain2.addBlock(new Block(Date.now().toString(), ["100,00 BTC"]));
+RaviRayaneChain2.addBlock(new Block(Date.now().toString(), ["200,00 BTC"]));
+RaviRayaneChain2.addBlock(new Block(Date.now().toString(), ["300,00 BTC"]));
+RaviRayaneChain2.addBlock(new Block(Date.now().toString(), ["39,00 BTC"]));
+RaviRayaneChain2.addBlock(new Block(Date.now().toString(), ["358,07 BTC"]));
+RaviRayaneChain2.addBlock(new Block(Date.now().toString(), ["789,00 BTC"]));
+RaviRayaneChain2.addBlock(new Block(Date.now().toString(), ["88,79 BTC"]));
+RaviRayaneChain2.addBlock(new Block(Date.now().toString(), ["3579,02 BTC"]));
+RaviRayaneChain2.addBlock(new Block(Date.now().toString(), ["4,93 BTC"]));
+RaviRayaneChain2.addBlock(new Block(Date.now().toString(), ["271,88 BTC"]));
+console.log(RaviRayaneChain2.chain);
+console.log("Mostrando a cadeia de blocos no teste com a mineração");
 
 //OBSERVAÇÕES -->
 //o blockchain é uma lista com os blocos
