@@ -34,7 +34,8 @@ class Block {
 class Blockchain {
   constructor() {
     this.chain = [new Block(Date.now().toString())];
-    this.difficulty = 3; //adereço de dificuldade, começando em 1
+    this.difficulty = 3; //adereço de dificuldade
+    this.blockTime = 30000; //tempo de bloqueio
   }
 
   //Metodo para pegar o último bloco da cadeia
@@ -50,6 +51,11 @@ class Blockchain {
     block.mineration(this.difficulty); //chamando a mineração, chamando a dificuldade como parametro
 
     this.chain.push(block); //empurrando o bloco para a cadeia
+
+    this.difficulty +=
+      Date.now() - parseInt(this.getLastBlock().timestamp) < this.blockTime
+        ? 1
+        : -1;
   }
 
   //Metodo para saber se o bloco é valido ou não
@@ -95,6 +101,7 @@ RaviChain.addBlock(new Block(Date.now().toString(), ["100,00 BTC"]));
 RaviChain.addBlock(new Block(Date.now().toString(), ["200,00 BTC"]));
 RaviChain.addBlock(new Block(Date.now().toString(), ["300,00 BTC"]));
 console.log(RaviChain.chain);
+console.log(RaviChain);
 console.log("Mostrando a cadeia de blocos no teste com a mineração");
 
 //OBSERVAÇÕES -->
