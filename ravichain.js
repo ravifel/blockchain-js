@@ -71,38 +71,38 @@ class Blockchain {
         currentBlock.prevHash !== prevBlock.hash
       ) {
         return false; //Não validado
-      } else {
-        return true; //Validado
       }
+
+      return true; //Validado
     }
   }
 }
 
 //---> criando uma nova cadeia para teste
-// const RaviChain = new Blockchain();
-// RaviChain.addBlock(new Block(Date.now().toString(), ["100,00 BTC"]));
-// console.log(RaviChain.chain);
-// console.log("Mostrando a cadeia de blocos");
+const RaviChain = new Blockchain();
+RaviChain.addBlock(new Block(Date.now().toString(), ["100,00 BTC"]));
+console.log(RaviChain.chain);
+console.log("Mostrando a cadeia de blocos");
 
 //---> verificando se a função é valida/
 //---> se for valida vai retornar "true"
-// console.log(RaviChain.isValid());
-// console.log("Validação da cadeia (TRUE)");
+console.log(RaviChain.isValid());
+console.log("Validação da cadeia (TRUE)");
 
 //---> aqui iremos mudar algum dado do bloco e solicitar a validação (irá dar falso)
-// RaviChain.chain[1].data = ["Alteração de dado"];
-// console.log(RaviChain.chain);
-// console.log(RaviChain.isValid());
-// console.log("Validação da cadeia (FALSE)");
+RaviChain.chain[1].data = ["Alteração de dado"];
+console.log(RaviChain.chain);
+console.log(RaviChain.isValid());
+console.log("Validação da cadeia (FALSE)");
 
 //---> testando com a mineração
-const RaviChain = new Blockchain();
-RaviChain.addBlock(new Block(Date.now().toString(), ["100,00 BTC"]));
-RaviChain.addBlock(new Block(Date.now().toString(), ["200,00 BTC"]));
-RaviChain.addBlock(new Block(Date.now().toString(), ["300,00 BTC"]));
-console.log(RaviChain.chain);
-console.log(RaviChain);
-console.log("Mostrando a cadeia de blocos no teste com a mineração");
+// const RaviChain = new Blockchain();
+// RaviChain.addBlock(new Block(Date.now().toString(), ["100,00 BTC"]));
+// RaviChain.addBlock(new Block(Date.now().toString(), ["200,00 BTC"]));
+// RaviChain.addBlock(new Block(Date.now().toString(), ["300,00 BTC"]));
+// console.log(RaviChain.chain);
+// console.log(RaviChain);
+// console.log("Mostrando a cadeia de blocos no teste com a mineração");
 
 //OBSERVAÇÕES -->
 //o blockchain é uma lista com os blocos
