@@ -6,7 +6,7 @@ class Block {
   constructor(timestamp = "", data = []) {
     this.timestamp = timestamp;
     this.data = data; //aqui geralmente contem coisas como transações..
-    this.hash = this.getHash();F
+    this.hash = this.getHash();
     this.prevHash = "";
   }
 
